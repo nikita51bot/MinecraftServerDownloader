@@ -45,11 +45,12 @@ while [[ $# -gt 0 ]]; do
             fi
             ;;
         -h|--help)
-            echo "Usage: $0 [--version VERSION]"
+            echo "Usage: $0 [--version VERSION | --kernel KERNEL]"
             echo ""
             echo "Options:"
-            echo "  --version VERSION    Display specified version (default: $MINECRAFT_VERSION)"
-            echo "  -h, --help          Show this help message"
+            echo "  --version VERSION    download specified version (default: $MINECRAFT_VERSION)"
+			echo "  --kernel KERNEL      download specified kernel (available: ${AVAILABLE_KERNELS[*]})"
+            echo "  -h, --help           Show this help message"
             exit 0
             ;;
         *)
