@@ -97,7 +97,7 @@ if [[ "$KERNEL" == "bukkit" || "$KERNEL" == "spigot" ]]; then
 		KERNEL="craftbukkit"
 	fi
 	mkdir "$SERVER_FOLDER"
-	if ! curl -o "$SERVER_FOLDER/server.jar" https://cdn.getbukkit.org/$KERNEL/$KERNEL-1.21.11.jar; then
+	if ! curl -o "$SERVER_FOLDER/server.jar" https://cdn.getbukkit.org/$KERNEL/$KERNEL-$MINECRAFT_VERSION.jar; then
         echo "Error: Failed to download minecraft $KERNEL version $MINECRAFT_VERSION from getbukkit.org" >&2
         exit 1
     fi
@@ -106,4 +106,5 @@ fi
 # Setup EULA
 echo "eula=true" > "$SERVER_FOLDER/eula.txt"
 mkdir "$SERVER_FOLDER/plugins"
+echo "java -jar server.jar --nogui" > "$SERVER_FOLDER/start.sh"
 exit
